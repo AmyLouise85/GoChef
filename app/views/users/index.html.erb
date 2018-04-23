@@ -1,18 +1,11 @@
-<div class='main-container'>
+<div class="user_signed_in">
 <% if user_signed_in? %>
-    <p>Welcome, <%= current_user.name %>! </p><br>
-    <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
+    <h3>Welcome, <%= current_user.name %>! </h3><br>
+    <%= link_to "View my profile" , "users/#{current_user.id}" %><br>
+    <%= link_to "Edit my profile" , "users/#{current_user.id}/edit" %><br>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     <br>
-
-    <div class="welcome-container">
-        <% @users.each do |chef| %>
-            <a href = "users/<%= chef.id %>" class="chef-link" >
-                <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
-                <p><%= chef.name %></p>
-            </a>
-        <%end%>
-    </div>
+  </div>
 <% else %>
 <div class="hero">
     <div id="carousel">
@@ -92,8 +85,8 @@
     var self = this;
     this.el = document.getElementById(id);
     this.imgs = this.el.querySelectorAll('div');
-    this.currentImage = 0;  
-    this.imgs[this.currentImage].classList.add('show');  
+    this.currentImage = 0;
+    this.imgs[this.currentImage].classList.add('show');
     window.setInterval(function(){ self.advanceImg() }, 10000);
   }
   Carousel.prototype.advanceImg = function(){

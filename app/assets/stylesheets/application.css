@@ -15,4 +15,35 @@
  *= require default.css
  *= require login.css
 
- */
+
+ /* these are details relating to the chefs profile page */
+ .chefdeets {
+   height: auto;
+   background-color: #f3f3f3;
+   width: auto;
+   line-height:normal;
+   margin-top: 50px;
+   margin-left: 150px;
+   margin-right: 150px;
+   display:  flex;
+   justify-content:  center;
+   align-items: center;
+   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.4);
+ }
+
+ .chefdeetsheader {
+   margin-left: 50px;
+   margin-top: 50px;
+ }
+
+ .chefdeets .avatar {
+   height: 500px; /* why isnt this working!? */
+   width: 500px;
+   border-radius: 50%;
+ }
+
+ /* these are details relating to the chefs 'you are logged in' page */
+ .user_signed_in {
+   background-image: url('/public/images/hero/chili.jpg');
+   font-size: 25px;
+ }
