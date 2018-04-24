@@ -1,3 +1,4 @@
+
 $main-font: 'Lobster', cursive;
 $primary-colour: #2b90d9;
 
@@ -6,8 +7,7 @@ h1 {
  color: $primary-colour;
  text-align: center;
  margin-bottom: 30px;
-}
-
+>>>>>>> added some css, tried to explore some of the duplicates, needs working on
 h2 {
  font-size: 30px;
  color: $primary-colour;
@@ -15,6 +15,7 @@ h2 {
 
 h1, h2, h3{
   font-family: $main-font;
+  >>>>>>> added some css, tried to explore some of the duplicates, needs working on
 }
 
 body {
@@ -67,6 +68,22 @@ header {
   background-color: rgba(255, 255, 255, 0.7);
   position:  absolute;
   top: 0px;
+  right:  0px;
+  height: 46px;
+  width: 80px;
+  display:  flex;
+  justify-content:  center;
+  align-items:  center;
+  font-weight:  bold;
+  font-family: 'Lobster';
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+ }
+
+.hero-buttons a{
+  color: #2b90d9;
+  font-size: 22px;
+  text-decoration: none;
   right: 0px;
   height: 46px;
   width: 80px;
@@ -77,7 +94,7 @@ header {
   font-family: $main-font;
   align-items: center;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
- 
+
   a {
     color: $primary-colour;
     font-size: 22px;
@@ -193,6 +210,19 @@ div.col-50 span {
   align-items:  center;
 }
 
+<<<<<<< HEAD
+=======
+.main-search {
+  min-width: 500px;
+  margin-top: 20px;
+}
+
+.main-search h3 {
+  font-size: 36px;
+  color: #282c37;
+}
+
+>>>>>>> added some css, tried to explore some of the duplicates, needs working on
 .home-chefs {
   width: 100%;
   display: flex;
@@ -218,6 +248,7 @@ div.col-50 span {
  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
 }
 
+<<<<<<< HEAD
 #filter{
   background-color: $primary-colour;
   min-height: 200px;
@@ -229,6 +260,59 @@ div.col-50 span {
     font-size: 36px;
     color: #282c37;
   }
+=======
+.home-filter{
+  background-color: #2b90d9;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.create-container {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+#userpassword {
+  text-align: center;
+}
+
+input {
+  width: 200px;
+}
+
+.field {
+  width: 205px;
+}
+
+#user_remember_me {
+  width: 10px;
+}
+
+label {
+  text-align: center;
+}
+
+.chef-login {
+  text-align: center;
+}
+
+.new-user {
+  text-align: center;
+}
+
+#signup-map {
+  margin: auto;
+  width: 50%;
+}
+
+div.create-container {
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+>>>>>>> added some css, tried to explore some of the duplicates, needs working on
 }
 
 .container.show-profile .avatar, .welcome-container .avatar,.home-chefs .user-profile .avatar{

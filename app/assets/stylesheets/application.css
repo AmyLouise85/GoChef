@@ -44,6 +44,20 @@
 
  /* these are details relating to the chefs 'you are logged in' page */
  .user_signed_in {
-   background-image: url('/public/images/hero/chili.jpg');
-   font-size: 25px;
+   background-size: cover;
+   background-image: url('/images/hero/chili.jpg');
+   height: 100vh;
+   font-size: 20px;
+   height: auto;
+   background-color: #f3f3f3;
+   width: auto;
+   line-height:normal;
+   /* margin-top: 50px;
+   margin-left: 150px;
+   margin-right: 150px; */
+   /* display: contents; */
+   justify-content:  center;
+   align-items: center;
+   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.4);
+
  }
