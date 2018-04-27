@@ -23,34 +23,41 @@
   display: inline-block;
 }
 </style>
-<div class='main-container loggedin'>
-<div class="hero-buttons"><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></div>
-<div class="login-box">
-<div class="container show-profile">
-    <br><h2> Profile page blurb </h2>
-    <div class='chefdeets'>
-        <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
-          <div class='text'>
-             <br><p><%= @user.name %></p>
-             <br><p><%= @user.email %></p>
-             <br><p><%= @user.bio %></p>
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages. </p>
-             <br><p><%= @user.location_lat %></p>
-             <p><%= @user.location_lon %></p>
-      <br> <br><h2> <%= @user.name %>'s Gallery </h2>
+  <div class='main-container loggedin'>
+    <div class="hero-buttons">
+      <div class="nav">
+        <p><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></p>
+        <p><h3><%= link_to('Edit Profile', edit_user_path(@user) ) %> </h3><br></p>
+        <p><h3><%= link_to('Home', '/' ) %> </h3><br></p>
+        </li>
     </div>
-    <div class="gallery-container">
-      <div class="user-gallery">
-      <% @user.photos.each do |photo| %>
-        <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
-        <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
-      <% end %>
+  </div>
+      <div class="login-box">
+        <div class="container show-profile">
+          <br><h2> Profile page blurb </h2>
+            <div class='chefdeets'>
+              <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
+              <div class='text'>
+                <br><p><%= @user.name %></p>
+                <br><p><%= @user.email %></p>
+                <br><p><%= @user.bio %></p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages. </p>
+                <br><p><%= @user.location_lat %></p>
+                <p><%= @user.location_lon %></p>
+                <br> <br><h2> <%= @user.name %>'s Gallery </h2>
+              </div>
+              <div class="gallery-container">
+              <div class="user-gallery">
+                <% @user.photos.each do |photo| %>
+                  <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
+                  <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+  </div>
 </div>
 </div>

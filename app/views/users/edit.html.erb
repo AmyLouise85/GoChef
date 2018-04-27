@@ -78,7 +78,7 @@ h1 {
   <div class="form-group">
     <%= f.label :name %>:
     <%= f.text_field :name, class: "form-control" %>
-  </div> 
+  </div>
   <div class="form-group">
     <%= f.label :email %>:
     <%= f.text_field :email, class: "form-control" %>
@@ -109,7 +109,7 @@ h1 {
 <h1>Add New Photos</h1>
 
 <%= form_for [@user,@photo], url: user_photos_path(@user), html:{ multipart: true, class: "dropzone", id: "imageuploader" } do |f| %>
-  
+
 <% end %>
 
 
@@ -141,6 +141,4 @@ h1 {
   $(document).ready(function(){
   $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
 });
-
-  
 </script>
