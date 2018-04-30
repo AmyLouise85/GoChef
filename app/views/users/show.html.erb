@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .user-gallery {
     width: 750px;
     flex-wrap: wrap;
@@ -13,7 +12,6 @@
     column-count: 4;
     margin-top: 50px;
 }
-
 .thumb {
   width: 100%;
   background-size: cover;
@@ -22,42 +20,146 @@
   margin-bottom: 10px;
   display: inline-block;
 }
+  .banner{
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .banner .avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid white;
+    margin-bottom: 10px;
+  }
+  .banner .overlay h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+  .banner .banner-bio{
+    max-width: 300px;
+  }
+  .banner .banner-bio p {
+    font-weight: 700;
+    text-align: center;
+    font-style: italic;
+    color: #282c37;
+  }
+  .overlay{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(255,255,255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .hero-buttons.profile{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+  }
+  .profile-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-container {
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+  .profile-container h1{
+    text-align: left;
+}
+
 </style>
-  <div class='main-container loggedin'>
-    <div class="hero-buttons">
-      <div class="nav">
-        <p><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></p>
-        <p><h3><%= link_to('Edit Profile', edit_user_path(@user) ) %> </h3><br></p>
-        <p><h3><%= link_to('Home', '/' ) %> </h3><br></p>
-        </li>
-    </div>
-  </div>
-      <div class="login-box">
-        <div class="container show-profile">
-          <br><h2> Profile page blurb </h2>
-            <div class='chefdeets'>
-              <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
-              <div class='text'>
-                <br><p><%= @user.name %></p>
-                <br><p><%= @user.email %></p>
-                <br><p><%= @user.bio %></p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages. </p>
-                <br><p><%= @user.location_lat %></p>
-                <p><%= @user.location_lon %></p>
-                <br> <br><h2> <%= @user.name %>'s Gallery </h2>
-              </div>
-              <div class="gallery-container">
-              <div class="user-gallery">
-                <% @user.photos.each do |photo| %>
-                  <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
-                  <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="hero-buttons profile"><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></div>
+<div class="banner" style="background-image:url(<%= @user.banner.url %>);">
+  <div class="overlay">
+    <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
+    <h1><%= @user.name %></h1>
+    <% if @user.role == 'chef' && @user.reviews_received.length > 0 %>
+      <p><% rating = ((@user.reviews_received.map.sum do |review| %>
+          <% review.rating %>
+        <% end) / @user.reviews_received.length) %>
+        <% rating.times do  %>
+          <% puts %><i class="far fa-star fa-2x"></i>
+        <% end %></p>
+      <% end %>
+    <div class="banner-bio">
+      <p><%= @user.bio %></p>
     </div>
   </div>
 </div>
+
+<div class="profile-content">
+  <div class="left-container">
+    <h1>Bio</h1>
+    <p>
+      <% @user.skills.each do |skill| %>
+      <span>
+      <%= skill.name %>
+      </span>
+      <% end %>
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit varius nulla, id tempor eros mattis volutpat. Duis auctor nec nibh vitae scelerisque. Phasellus risus justo, aliquam eu nunc id, volutpat hendrerit turpis. Pellentesque luctus dui odio, sed vehicula leo cursus in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vitae blandit magna, sed suscipit erat. Nam malesuada bibendum enim non consequat. Morbi faucibus in mauris ac maximus. Curabitur aliquet est at turpis pharetra elementum. Integer congue, velit et tincidunt bibendum, libero leo fermentum libero, id mollis libero felis nec urna. Sed in dui nulla. Vestibulum eget libero id sapien mattis facilisis.</p>
+  </div>
 </div>
+ <% if @user.photos.length > 0 %>
+<div class="gallery-container">
+  <h2> <%= @user.name %>'s Gallery </h2>
+  <div class="user-gallery">
+    <% @user.photos.each do |photo| %>
+      <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
+      <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<% if @user.reviews_received.length > 0 %>
+
+    <h2><%= @user.name %>'s Reviews:</h2>
+    <div class='reviews'>
+    <% @user.reviews_received.each do |review| %>
+    <div class='user-reviews'>
+      <p class='stars'><% stars = review.rating %>
+        <% stars.times do  %>
+          <% puts %><i class="far fa-star fa-2x"></i>
+        <% end %></p><br>
+      <p>"<%= review.review %>"</p><br>
+      <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p></div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user_signed_in? && !current_page?("/users/#{current_user.id}") && User.find(params[:id]).role != 'customer' %>
+
+  <div class='addReview'>
+    <% if @message %>
+      <p><%= @message %></p>
+    <% end %>
+    <p>Leave a review for <%= @user.name %>!</p>
+    <%= form_for @review, url: "/users/#{@user.id}" do |f| %>
+      <%= f.text_field :rating %>
+      <%= f.text_area :review %>
+      <%= f.submit "Create" %>
+    <% end %>
+  </div>
+<% end %>

@@ -12,7 +12,13 @@
   background-size: cover;
 }
 
-.login-box, .chefdeets, .avatar, .text {
+.login-box {
+  width: 350px;
+  margin: 50px 0px;
+}
+
+
+.login-box, .chefdeets, .avatar, .text-login {
   margin: 30px;
   height: auto;
   background-color: rgba(255, 255, 255, 0.7);
@@ -22,23 +28,52 @@
   justify-content: center;
   flex-direction: column;
 
+  label {
+    font-weight: bold;
+    margin-top: 15px;
+  }
 
   h2 {
     color: #2b90d9;
     text-align: center;
+    margin-top: 20px;
   }
 
   .signup {
     padding: 20px;
+    p{
+      font-weight: 300;
+    }
   }
 
   .signup a {
-    padding: 20px;
+    font-size: 25px;
+    display: block;
+    color: white;
+    background: #2b90d9;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 0.2em 0;
+    line-height: 1.25;
+    transition: all 0.15s ease-in-out;
+    width: 150px;
+    font-family: 'Lobster';
+    margin-top: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
     text-decoration: none;
+
+    &:hover{
+      box-shadow: 0px 5px 14px rgba(0,0,0,0.4);
+    }
   }
 
   .chef-login {
     text-align: center;
+  }
+  .actions {
+    display: flex;
+    justify-content: center;
   }
 }
 

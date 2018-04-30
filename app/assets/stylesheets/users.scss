@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.reviews {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+
+  .reviewer {
+    font-style: italic;
+    text-align: right;
+    padding-right: 20px;
+  }
+  
+  .user-reviews {
+    width: 45vw;
+    background-color: #f3f3f3;
+    text-align: left;
+    font-weight: 300;
+    margin: 10px;
+    margin-left: 30px;
+    padding: 10px;
+  }
+
+  .stars {
+    text-align: center;
+    margin-top: 10px;
+  }
+}

@@ -1,11 +1,19 @@
 $main-font: 'Lobster', cursive;
 $primary-colour: #2b90d9;
 
+
 h1 {
- font-size: 130px;
  color: $primary-colour;
  text-align: center;
  margin-bottom: 30px;
+}
+
+.welcome-text h1 {
+  font-size: 130px;
+}
+
+.hero-buttons a {
+  font-family: 'Lobster';
 }
 
 h2 {
@@ -17,6 +25,10 @@ h1, h2, h3{
   font-family: $main-font;
 }
 
+a, p {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   background-color: #ffffff;
 
@@ -26,9 +38,8 @@ header {
   background-color: #282c37;
   padding: 15px 10px;
 }
-p{
+*{
   font-family: 'Roboto', sans-serif;
-  text-align: center;
 }
 
 #carousel {
@@ -79,7 +90,7 @@ p{
   justify-content: center;
   align-items:  center;
   font-weight:  bold;
-  font-family: $main-font;
+  font-family: 'Lobster';
   align-items: center;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
   a {
@@ -162,6 +173,15 @@ div.col-50 span {
   flex-direction: column;
 }
 
+.home-chefs .user-profile .avatar{
+  margin: 20px;
+  margin-left: 15px;
+}
+
+.home-chefs .user-profile .text p{
+  text-align: left;
+}
+
 .home-chefs .user-profile .text{
   width: 350px;
   margin-left: 20px;
@@ -169,7 +189,10 @@ div.col-50 span {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #f3f3f3;
+  margin: 0px!important;
+  text-align: left;
+  font-weight: 300;
 }
 
 .home-chefs .user-profile .text p{
@@ -227,6 +250,28 @@ div.col-50 span {
  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
 }
 
+input[type=submit] {
+  font-size: 25px;
+  display: block;
+  color: white;
+  background: #282c37;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 0.2em 0;
+  line-height: 1.25;
+  transition: all 0.15s ease-in-out;
+  width: 150px;
+  font-family: 'Lobster';
+  margin-top: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 0px 5px 14px rgba(0,0,0,0.4);
+  }
+
+}
+
 #filter{
   background-color: $primary-colour;
   min-height: 200px;
@@ -236,29 +281,6 @@ div.col-50 span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-  input[type=submit] {
-    font-size: 25px;
-    display: block;
-    color: white;
-    background: #282c37;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: 0.2em 0;
-    line-height: 1.25;
-    transition: all 0.15s ease-in-out;
-    width: 150px;
-    font-family: 'Lobster';
-    margin-top: 10px;
-    margin-bottom: 30px;
-    cursor: pointer;
-
-    &:hover{
-      box-shadow: 0px 5px 14px rgba(0,0,0,0.4);
-    }
-
-  }
 
   form {
     display: flex;
@@ -386,6 +408,7 @@ div.col-50 span {
 
 .notice {
   margin-top: 0px;
+  position: absolute;
 }
 
 .alert {
@@ -403,4 +426,68 @@ color: black;
 .multiselect{
   display: block;
   width: 200px;
+}
+
+
+#imageuploader {
+  min-height: 300px;
+  width: 100%;
+  border: #333 3px dashed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #2b90d9;
+  flex-wrap: wrap;
+}
+.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete{
+  flex-wrap: wrap;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dz-default.dz-message{
+width: 100%;
+display: block;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.photos{
+display: flex;
+flex-wrap: wrap;
+min-height: 1000px;
+}
+
+.photos .thumb {
+width: 150px;
+height: 150px;
+background-size: cover;
+position: relative;
+margin-right: 5px;
+border: 1px solid black;
+}
+
+.photos .thumb a{
+position: absolute;
+top: 0px;
+right: 0px;
+background-color: rgba(255,255,255,0.8);
+display: flex;
+justify-content: center;
+padding: 10px;
+font-weight: bold;
+font-family: Helvetica;
+color: black;
+}
+
+h1 {
+font-size: 30px;
+}
+
+.fa-star:before {
+  color: #2b90d9;
 }

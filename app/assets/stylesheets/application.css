@@ -11,10 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
 
- *= require includes.css
  *= require reset.css
+ *= require includes.css
  *= require default.css
  *= require login.css
  *= require chosen
-
+ *= require users.scss
  */

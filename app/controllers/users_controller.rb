@@ -3,14 +3,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
     @skills = Skill.all
-    if params[:name]
-      name = params[:name]
-      @users = User.where('name LIKE ?', "%#{name}%")
+
+    if params[:name] != '' && params[:name] != nil
+      name = params[:name].downcase
+      @users = User.where('lower(name) LIKE ?', "%#{name}%")
     end
-    output = []
+
     if params[:skills]
+      output = []
       params[:skills][:ids][1..-1].each do |skill_id|
         skill = Skill.find(skill_id.to_i)
         @users.each do |user|
@@ -18,23 +19,31 @@ class UsersController < ApplicationController
             output << user
           end
         end
+        @users = output
+      end
+    end
+
+    if params[:location] != '' && params[:location] != nil
+      location = params[:location] << ', UK'
+      output = []
+      @users.each do |user|
+        if user.distance_to(location).to_i <= user.distance_to_travel.to_i
+          output << user
+        end
       end
       @users = output
     end
+
     if request.xhr?
       render status: 200, json: {
             user: @users
       }.to_json
-    elsif user_signed_in?
-      @user = current_user
-      render "show"
-    else
-      render "index"
     end
   end
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
   end
 
   def edit
@@ -51,7 +60,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       if params[:user][:skill_ids] 
         params[:user][:skill_ids][1..-1].each do |skill|
-          @user.skills << Skill.find(skill.to_i)
+          a = Skill.find(skill.to_i)
+          if !@user.skills.include?(a)
+            @user.skills << Skill.find(skill.to_i)
+          end
         end
       end
       redirect_to :action => "show", :id => @user.id
@@ -63,6 +75,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role)
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role, :distance_to_travel, :banner)
     end
 end

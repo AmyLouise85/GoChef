@@ -9,6 +9,9 @@ one: {
   email: 'belladog@dog.com',
   location_lat: 51.755733,
   location_lon: -0.010177,
+  role: 0,
+  distance_to_travel: 100,
+  skills: one
   #password: 'dog123'
 }
 # column: value
@@ -17,7 +20,18 @@ two: {
   name: 'Person two',
   email: 'person@dog.com',
   location_lat: 51.757733,
-  location_lon: -0.010177
+  location_lon: -0.010177,
+  role: 1
 }
+three: {
+  name: 'My name is Mr Chef',
+  email: 'chef@chef.com',
+  location_lat: 51.757733,
+  location_lon: -0.010177,
+  role: 0,
+  distance_to_travel: 100,
+  skills: two
+}
+
 # column: value
  

@@ -1,64 +1,3 @@
-<style>
-  #imageuploader {
-    min-height: 300px;
-    width: 100%;
-    border: #333 3px dashed;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #2b90d9;
-    flex-wrap: wrap;
-}
-  .dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete{
-    flex-wrap: wrap;
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.dz-default.dz-message{
-  width: 100%;
-  display: block;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.photos{
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 1000px;
-}
-
-.photos .thumb {
- width: 150px;
- height: 150px;
- background-size: cover;
- position: relative;
- margin-right: 5px;
- border: 1px solid black;
-}
-
-.photos .thumb a{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background-color: rgba(255,255,255,0.8);
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  font-weight: bold;
-  font-family: Helvetica;
-  color: black;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-</style>
 <div class="container">
 <h1>Edit Details</h1>
 <%= form_for @user, url: user_path(@user), html: { multipart: true }, :method => :PUT do |f| %>
@@ -91,6 +30,15 @@ h1 {
     Add Your <%= f.label :avatar %>:
     <%= f.file_field :avatar, class: "form-control" %>
   </div>
+  <div class="form-group">
+    Add Your <%= f.label :banner %>:
+    <%= f.file_field :banner, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Distance you are prepared to travel' %>:
+    <%= f.text_field :distance_to_travel, class: "form-control" %>
+  </div>
 
 <div class="form-group">
     <%= f.label "Add Some Profile Tags" %>
@@ -121,8 +69,6 @@ h1 {
   </div>
 <% end %>
 </div>
-
-<%= user_photo_path(@user, 4) %>
 </div>
 
 
